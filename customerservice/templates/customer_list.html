@@ -1,0 +1,19 @@
+{% extends 'base_generic.html' %}
+
+
+{% block content %}
+<h1>Welcome to CBV Customers List  </h1>
+{%if customer_list%}
+<ul>
+    {% for x in customer_list%}
+    {% comment %} <li>Name of Customer:{{x.name}}</li> {% endcomment %}
+    <li>
+        {% comment %} <p> Customersss</p> {% endcomment %}
+        <a href = "{{x.get_absolute_url }}">{{x.commercialname}}</a>({{x.brand}})
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No Customer!</p>
+{% endif %}
+{% endblock %}

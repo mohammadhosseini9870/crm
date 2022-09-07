@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+
+
+{% block content %}
+<h1>Welcome to CBV Customers Detail  </h1>
+{%if customer %}
+<ul>
+     
+    <li>
+        <p>{{customer.brand }}</p>
+        {% comment %} <p>Hi</p> {% endcomment %}
+    </li>
+</ul>
+{% else %}
+<p>No Customer!</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base_generic.html' %}
+{% comment %} {% extends 'customerservice/base_generic.html' %} {% endcomment %}
+
+
+{% block content %}
+<h1>Welcome to my CRM</h1>
+<ul>
+    <li>Number of Customers:{{num_customer}}</li>
+    <li>Number of Agents:{{num_agent}}</li>
+</ul>
+{% endblock %}
