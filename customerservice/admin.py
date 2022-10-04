@@ -6,6 +6,9 @@ class AgentInline(admin.TabularInline):
     model = models.Agent
     extra = 1
 
+class CloudInline(admin.TabularInline):
+    model = models.Cloud
+    extra = 1
 #-----------------------------
 
 @admin.register(models.Customer)
@@ -15,7 +18,8 @@ class CustomerAdmin(admin.ModelAdmin):
     list_display = ('commercialname_brand', 'address')
     list_filter = ('commercialname', 'brand', 'address')
     fields = (('commercialname', 'brand'), 'address')
-    inlines = [AgentInline]
+    inlines = [AgentInline, CloudInline]
+    
 # admin.site.register(models.Customer, CustomerAdmin)   
  
 #-----------------------------

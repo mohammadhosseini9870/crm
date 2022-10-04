@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>افزودن نماینده</h1>
+<form action='' method='post' enctype='multipart/form-data'>
+
+    {% for hidden_field in form.hidden_fields %}
+    {{hidden_field.errors}}
+    {{hidden_field}}
+    {% endfor %}
+
+    {% csrf_token %}
+    {{form.management_form}}
+    {{form.non_form_errors}}
+    <h3>به روزرسانی نمایندگان:</h3>
+    {%for agent_form in form.forms %}
+    <hr>
+    <h5>
+    {%if agent_form.instance.id%}
+       مشخصات نماینده: {{agent_form.instance.name}}
+    {%else%}
+    {% if form.forms|length > 1 %}
+        افزودن نماینده دیگر
+    {%else%}
+        افزودن یک نماینده
+    {% endif %}
+    {% endif %}
+    </h5>
+
+    {% for hidden_field in agent_form.hidden_fields %}
+    {{ hidden_field.errors}}
+    {% endfor %}
+    <table>
+        {{agent_form.as_table}}
+    </table>
+    {% endfor %}
+    <hr>
+    <p><button type='submit' value='به روزرسانی' class = 'btn btn-primary w-100 mb-3'>به روزرسانی</button></p>
+    <a href = '{{ agent.get_absolute_url }}' role='button' class = 'btn btn-primary w-100'>انصراف</a>
+    {% comment %} <table>
+        {{form.as_table}}
+    </table>
+    <input type='submit' value='افزودن' /> {% endcomment %}
+</form>
+{% endblock %}

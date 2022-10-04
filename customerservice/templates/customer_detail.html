@@ -1,14 +1,17 @@
-{% extends 'base_generic.html' %}
+{% extends 'base.html' %}
 
 
 {% block content %}
-<h1>Welcome to CBV Customers Detail  </h1>
+<h1>اطلاعات مشتریان:</h1>
 {%if customer %}
 <ul>
-     
     <li>
         <p>{{customer.brand }}</p>
-        {% comment %} <p>Hi</p> {% endcomment %}
+    </li>
+    <li>
+        {% comment %} {% for  in  %}
+        <p>{{customer.brand }}</p>
+        {% endfor %} {% endcomment %}
     </li>
 </ul>
 {% else %}

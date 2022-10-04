@@ -1,4 +1,4 @@
-{% extends 'base_generic.html' %}
+{% extends 'base.html' %}
 {% block content %}
 <h1>ورود به حساب کاربری</h1>
 
@@ -8,7 +8,7 @@
 
 {%if next%}
 {%if user.is_authenticated%}
-<p>your account dosnt have access to this page. to proceed, please login with a account that has access</p>
+<p>حساب کاربری شما به این صفحه دسترسی ندارد!</p>
 {%else%} {% comment %} maybe deleted! {% endcomment %}
 <p>لطفا جهت مشاهده صفحه وارد حساب کاربری شوید</p>
 {%endif%}

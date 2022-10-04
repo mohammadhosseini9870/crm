@@ -1,8 +1,10 @@
-{% extends 'base_generic.html' %}
+{% extends 'base.html' %}
 
 
 {% block content %}
-<h1>Welcome to CBV Customers List  </h1>
+<h1>لیست مشتریان:</h1>
+<a href = "{% url 'customerservice:customer_create' %}" >افزودن مشترک</a>
+<a href = "{% url 'customerservice:agent_create' %}" >افزودن نماینده</a>
 {%if customer_list%}
 <ul>
     {% for x in customer_list%}
